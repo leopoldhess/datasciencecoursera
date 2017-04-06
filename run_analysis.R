@@ -30,3 +30,6 @@ core_data<-data[,c(1,2,keep)]
 #install.packages("dplyr") ##this is easier with dplyr
 library(dplyr)
 new_data <- core_data %>% group_by(subject, activity) %>% summarise_each(funs(mean))
+
+##Step 6 output the dataset into a txt file
+write.table(new_data, file = "run_analysis.txt", row.names = FALSE)
